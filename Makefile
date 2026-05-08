@@ -12,8 +12,7 @@
 #
 # Prerequisites
 #   C compiler (cc / clang / gcc) for the native demo
-#   educpu16 assembler and emulator must be built first:
-#     cd ../educpu16 && make -f Makefile_assembler && make
+#   The assembler and emulator are built automatically from tools/ when needed
 # =============================================================================
 
 # ── Native C demo ─────────────────────────────────────────────────────────────
@@ -40,11 +39,17 @@ run: $(BIN)
 
 # ── educpu16 assembly demo ────────────────────────────────────────────────────
 
-EDUCPU      := ../educpu16
-ASM_BIN     := $(EDUCPU)/assembler_bin
-EMU_BIN     := $(EDUCPU)/emulator_bin
+TOOLS       := tools
+ASM_BIN     := $(TOOLS)/assembler_bin
+EMU_BIN     := $(TOOLS)/emulator_bin
 ASM_SRC     := asm/sum_recursive.asm
 ASM_OUT     := sum_recursive.bin
+
+$(ASM_BIN):
+	$(MAKE) -C $(TOOLS) assembler_bin
+
+$(EMU_BIN):
+	$(MAKE) -C $(TOOLS) emulator_bin
 
 assemble: $(ASM_OUT)
 
