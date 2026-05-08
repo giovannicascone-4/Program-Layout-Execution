@@ -98,16 +98,14 @@ void cpu_step(CPU *cpu) {
         break;
 
     case OP_CALL:
-        mem_write(cpu->sp, cpu->pc);
-        cpu->sp = (uint16_t)(cpu->sp - 1u);
-        cpu->regs[7] = cpu->sp;
+        mem_write(cpu->regs[7], cpu->pc);
+        cpu->regs[7] = (uint16_t)(cpu->regs[7] - 1u);
         cpu->pc = (uint16_t)(cpu->pc + off);
         break;
 
     case OP_RET:
-        cpu->sp = (uint16_t)(cpu->sp + 1u);
-        cpu->regs[7] = cpu->sp;
-        cpu->pc = mem_read(cpu->sp);
+        cpu->regs[7] = (uint16_t)(cpu->regs[7] + 1u);
+        cpu->pc = mem_read(cpu->regs[7]);
         break;
 
     case OP_HALT:

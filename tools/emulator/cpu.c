@@ -10,8 +10,7 @@ void cpu_init(CPU *cpu) {
     }
 
     memset(cpu, 0, sizeof(*cpu));
-    cpu->sp = (uint16_t)STACK_BASE;
-    cpu->regs[7] = cpu->sp;
+    cpu->regs[7] = (uint16_t)STACK_BASE;
 }
 
 void cpu_reset(CPU *cpu) {
@@ -22,8 +21,7 @@ void cpu_reset(CPU *cpu) {
     memset(cpu->regs, 0, sizeof(cpu->regs));
     cpu->pc = 0u;
     cpu->ir = 0u;
-    cpu->sp = (uint16_t)STACK_BASE;
-    cpu->regs[7] = cpu->sp;
+    cpu->regs[7] = (uint16_t)STACK_BASE;
     cpu->flags = 0u;
     cpu->cycle_count = 0u;
     cpu->halted = false;
@@ -52,7 +50,7 @@ void cpu_dump(const CPU *cpu) {
     }
     printf("PC: 0x%04X\n", cpu->pc);
     printf("IR: 0x%04X\n", cpu->ir);
-    printf("SP: 0x%04X\n", cpu->sp);
+    printf("SP: 0x%04X\n", cpu->regs[7]);
     printf("FLAGS: [Z=%u N=%u C=%u O=%u] (0x%02X)\n",
            (cpu->flags & FLAG_ZF) != 0u,
            (cpu->flags & FLAG_NF) != 0u,

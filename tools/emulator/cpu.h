@@ -12,10 +12,9 @@
 #define FLAG_OF (1u << 3) /* Overflow */
 
 typedef struct CPU {
-    uint16_t regs[NUM_REGS]; /* R0-R7 */
+    uint16_t regs[NUM_REGS]; /* R0-R7; R7 is the stack pointer */
     uint16_t pc;             /* Program Counter */
     uint16_t ir;             /* Instruction Register */
-    uint16_t sp;             /* Stack Pointer (R7 alias) */
     uint8_t flags;           /* ZF | NF | CF | OF */
     uint64_t cycle_count;    /* Total cycles executed */
     bool halted;             /* True after HALT */
