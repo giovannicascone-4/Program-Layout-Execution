@@ -25,6 +25,10 @@ The assembly version uses recursive summation instead of factorial because the `
 - `Makefile`  
   Main build and run commands for the assignment.
 
+## Demo Video
+
+Demo recording: [Watch the project walkthrough](https://drive.google.com/file/d/18eVFhpHv0DmGLpRez--QiaSdTu7G0ltT/view?usp=sharing)
+
 ## Requirements
 
 You need:
@@ -131,7 +135,7 @@ If needed, local tool binaries can also be removed with:
 make -C tools clean
 ```
 
-## Notes for Submission
+## Notes 
 
 This repository is organized so that:
 
@@ -139,4 +143,4 @@ This repository is organized so that:
 - build commands are short and reproducible
 - the software CPU tools are included locally for easier grading and verification
 
-For the video/demo portion, the recommended focus is the assembly program, since it directly shows the executable layout in memory, function call handling, and recursion behavior on the software CPU.
+For the video/demo portion, focus is the assembly program, since it directly shows the executable layout in memory, function call handling, and recursion behavior on the software CPU.

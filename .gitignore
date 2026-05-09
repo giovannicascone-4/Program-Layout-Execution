@@ -1,0 +1,12 @@
+.DS_Store
+
+# Native build outputs
+factorial_demo
+src/*.o
+
+# Assembled program output
+sum_recursive.bin
+
+# Local tool binaries
+tools/assembler_bin
+tools/emulator_bin
